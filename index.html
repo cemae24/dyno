@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Dino Game</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+            display: block;
+            margin: 20px auto;
+            background-color: #f7f7f7;
+        }
+        #controls {
+            text-align: center;
+            margin-top: 10px;
+        }
+        label {
+            margin: 0 10px;
+            font-family: Arial, sans-serif;
+        }
+        input[type="range"] {
+            vertical-align: middle;
+            width: 200px;
+        }
+        button {
+            margin-left: 20px;
+            padding: 8px 16px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+        #jumpButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #exitButton {
+            background-color: #f44336;
+            color: white;
+        }
+        /* Disable opacity for disabled controls */
+        input[type="range"]:disabled {
+            opacity: 0.5;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        /* Button hover effects */
+        button:not(:disabled):hover {
+            opacity: 0.8;
+        }
+        #jumpButton:not(:disabled):hover {
+            background-color: #45a049;
+        }
+        #exitButton:not(:disabled):hover {
+            background-color: #d32f2f;
+        }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            canvas {
+                width: 90%;
+                height: auto;
+            }
+            button {
+                margin: 10px 5px;
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            input[type="range"] {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="200"></canvas>
+
+<div id="controls">
+    <label for="speed">Speed:</label>
+    <input type="range" id="speed" name="speed" min="1" max="20" value="5">
+    
+    <label for="density">Obstacle Density:</label>
+    <input type="range" id="density" name="density" min="1" max="10" value="5">
+    
+    <button id="startButton" tabindex="-1">Start Game</button>
+    <button id="jumpButton">Jump</button>
+    <button id="exitButton" disabled>Exit</button> <!-- Exit Button, initially disabled -->
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
